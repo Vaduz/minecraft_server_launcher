@@ -8,7 +8,7 @@ PowerShell Auto‑Update & Launch Script
 
 ## Features
 
-* **Java bootstrap** – Installs OpenJDK 21 automatically through **winget** when no compatible Java runtime is found.
+* **Java bootstrap** – Installs OpenJDK 25 automatically through **winget** when no compatible Java runtime is found.
 * **Version‑aware download** – Downloads the specified version *or* the latest release. The Mojang version manifest is queried **only when the latest version is requested**, avoiding unnecessary network calls.
 * **EULA automation** – Pass `-Eula yes|true` to skip the interactive prompt and write `eula=true` to *eula.txt*.
 * **16 GB heap & nogui by default** – Tweakable with `-MinMemory`, `-MaxMemory`, and `-Gui` switches.
@@ -25,7 +25,7 @@ PowerShell Auto‑Update & Launch Script
 | Package manager | winget (bundled with Windows App Installer) |
 | Network         | HTTPS access to `launchermeta.mojang.com`   |
 
-> **Heads‑up:** If *winget* is unavailable, pre‑install Java 21 and make sure it is on **PATH**.
+> **Heads‑up:** If *winget* is unavailable, pre‑install Java 25 and make sure it is on **PATH**.
 
 ---
 
@@ -92,7 +92,7 @@ Read the full EULA here: [https://aka.ms/MinecraftEULA](https://aka.ms/Minecraft
 
 ## Java Installation Strategy
 
-* Only triggers `winget install Microsoft.OpenJDK.21` when Java is missing.
+* Only triggers `winget install Microsoft.OpenJDK.25` when Java is missing.
 * Refreshes the current session’s **PATH** so the new Java is available right away.
 
 ---
