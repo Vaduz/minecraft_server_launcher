@@ -1,7 +1,7 @@
 <#
   Minecraft Java Edition – PowerShell Auto‑Update & Launch Script
   ----------------------------------------------------------------
-  · Installs OpenJDK 21 with winget if no Java runtime is found.
+  · Installs OpenJDK 25 with winget if no Java runtime is found.
   · Downloads the latest release (or a user‑specified version) only when
     the server JAR is missing. The version manifest is fetched **only**
     when required (i.e. no version argument or a download is needed).
@@ -22,7 +22,7 @@ Set-Location -Path $PSScriptRoot
 Write-Host "=== Minecraft Server Auto‑Updater & Launcher ===" -ForegroundColor White
 
 # ----------------------------------------------------------------
-# Java runtime: install OpenJDK 21 automatically if missing
+# Java runtime: install OpenJDK 25 automatically if missing
 # ----------------------------------------------------------------
 function Install-Java {
     $java = Get-Command java -ErrorAction SilentlyContinue
@@ -31,10 +31,10 @@ function Install-Java {
         return
     }
 
-    Write-Host "Java not found. Installing OpenJDK 21 via winget …" -ForegroundColor Yellow
+    Write-Host "Java not found. Installing OpenJDK 25 via winget …" -ForegroundColor Yellow
     try {
-        winget install --id Microsoft.OpenJDK.21 -e --accept-package-agreements --accept-source-agreements
-        Write-Host "OpenJDK 21 installed. Refreshing PATH …" -ForegroundColor Green
+        winget install --id Microsoft.OpenJDK.25 -e --accept-package-agreements --accept-source-agreements
+        Write-Host "OpenJDK 25 installed. Refreshing PATH …" -ForegroundColor Green
         $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
         Start-Sleep 2
     } catch {
